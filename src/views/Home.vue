@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-    <div class="container mx-auto sm:px-4" style="padding-top:20px">
+    <div class="container mx-auto sm:px-4 :class=padding-top-20px">
         <div class="grid grid-rows-4 grid-flow-col gap-6">
             <div class="col">
                 <div
@@ -13,7 +13,7 @@
                     <list-donatur @selectedDonatur="selectedDonatur"/>
                     <lokasi-bencana @selectedBantuan="selectedBantuan"/>
                     <div class="mb-1">
-                        <label for="">Jumlah donasi</label>
+                        <label for="">Jumlah Donasi Rp.</label>
                         <input type="number" v-model="jumlah" 
                         class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded">
                     </div>
