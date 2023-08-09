@@ -4,6 +4,7 @@ import clients from "./modules/clients";
 import transaksi from "./modules/transaksi";
 import users from "./modules/users";
 import kai from "./modules/kai";
+import product from "./modules/product";
 
 const store = createStore({
     
@@ -16,6 +17,7 @@ const store = createStore({
         transaksi,
         users,
         kai,
+        product,
     },
 });
 
