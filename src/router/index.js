@@ -5,7 +5,7 @@ import User from "../views/User.vue";
 import Kai from "../views/Kai.vue";
 import Product from "../views/Product.vue"
 import SingleProduct from "../views/SingleProduct.vue"
-
+import Category from "../views/Category.vue"
 const routes = [
     {
         path: "/",
@@ -31,6 +31,11 @@ const routes = [
         path: "/product/:id",
         name: "SingleProduct",
         component: SingleProduct,
+    },
+     {
+        path: "/category",
+        name: "Category",
+        component: Category,
     },
 ];
 
