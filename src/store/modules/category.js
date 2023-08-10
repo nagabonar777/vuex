@@ -4,6 +4,7 @@ const category = {
     namespaced: true,
     state: {
         categoryData: [],
+        
     },
     getters: {
         getCategory: (state) => state.categoryData,
