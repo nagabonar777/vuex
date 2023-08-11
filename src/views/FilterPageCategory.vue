@@ -1,5 +1,5 @@
 <template><br>
-    <h1 class="text-center b">PRODUCT</h1><br>
+    <h1 class="text-center b">PRODUCT </h1><br>
 <div class="grid grid-cols-4 gap-4 ">
     <div v-for="product in FilterPageCategory" :key="product.id" class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <a href="#">
@@ -44,7 +44,7 @@ export default {
     computed: {
         ...mapGetters("product", ["getProductByCategory"]),
         filteredProduct() {
-            return this.getProductByCategory(this.$route.params.category);
+            return this.getProductByCategory(Number(this.$route.params.category));
         },
     },
     methods: {

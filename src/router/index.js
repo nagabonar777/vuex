@@ -1,7 +1,8 @@
 import {
     createWebHistory, createRouter } from "vue-router";
 import Home from "../views/Home.vue";
-import User from "../views/User.vue";
+import User from "../views/user/Index.vue";
+import Create from "../views/user/Create.vue"
 import Kai from "../views/Kai.vue";
 import Product from "../views/Product.vue"
 import SingleProduct from "../views/SingleProduct.vue"
@@ -18,8 +19,16 @@ const routes = [
      {
         path: "/users",
         name: "User",
-        component: User,
+         component: User,
+        meta: {requireLogin: true}
     },
+    {
+        path: "/users/create",
+        name: "Create",
+        component: Create,
+          meta: {requireLogin: true}
+    },
+    
       {
         path: "/kai",
         name: "Kai",
@@ -44,8 +53,10 @@ const routes = [
         path: "/login",
         name: "Login",
           component: Login,
-        meta: {requiresGuest: true}
+        meta: {requireGuest: true}
     },
+    
+
       {
         path: "/category/:category",
         name: "FilterPageCategory",
@@ -61,12 +72,18 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    if (to.meta.requiresGuest && store.getters["auth/isAuthenticated"]) {
+    if (to.meta.requireGuest && store.getters["auth/isAuthenticated"]) {
         next("/");
     } else {
         next();
     }
 })
-
+router.beforeEach((to, from, next) => {
+    if (to.meta.requireLogin && !store.getters["auth/isAuthenticated"]) {
+        next("/login");
+    } else {
+        next();
+    }
+});
 
 export default router;
